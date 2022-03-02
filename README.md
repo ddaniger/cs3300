@@ -16,5 +16,4 @@ Objectives:
     - Learn Unit Testing
 
 Information:
-    - This is a test update
 
