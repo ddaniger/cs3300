@@ -79,3 +79,6 @@ end
 group :development, :test do
   gem 'capybara', '>= 2.15'
 end
+
+
+gem 'devise'
