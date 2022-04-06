@@ -70,6 +70,8 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
 end
 
+
+
 require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter '/bin/'
