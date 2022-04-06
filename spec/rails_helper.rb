@@ -70,8 +70,6 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
 end
 
-
-
 require 'simplecov'
 SimpleCov.start 'rails' do
   add_filter '/bin/'
@@ -81,5 +79,6 @@ SimpleCov.start 'rails' do
   add_filter '/app/channels/'
   add_filter '/app/helpers/'
   add_filter '/app/models/'
+  
 end
 
