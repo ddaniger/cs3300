@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2022_04_06_204207) do
 
   create_table "projects", force: :cascade do |t|
     t.string "title"
+    t.text "abstract"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
