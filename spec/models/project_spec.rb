@@ -4,23 +4,31 @@ require "rails_helper"
 RSpec.describe Project, type: :model do
   context "validations tests" do
     it "ensures the title is present" do
+      project = Project.new(abstract: "Abstraction")
       project = Project.new(description: "Content of the description")
       expect(project.valid?).to eq(false)
     end
 
     it "ensures the description is present" do
       project = Project.new(title: "Title")
+      project = Project.new(abstract: "Abstraction")
+      expect(project.valid?).to eq(false)
+    end
+
+    it "ensures the abstract is present" do
+      project = Project.new(title: "Title")
+      project = Project.new(description: "Content of the description")
       expect(project.valid?).to eq(false)
     end
     
     it "should be able to save project" do
-      project = Project.new(title: "Title", description: "Some description content goes here")
+      project = Project.new(title: "Title", description: "Some description content goes here", abstract: "Abstraction")
       expect(project.save).to eq(true)
     end
   end
 
   context "scopes tests" do
-    let(:params) { { title: "Title", description: "some description" } }
+    let(:params) { { title: "Title", abstract: "Abstraction", description: "some description" } }
     before(:each) do
       Project.create(params)
       Project.create(params)

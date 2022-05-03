@@ -12,7 +12,7 @@ describe ProjectsController, type: :controller do
   end
 
   context 'GET #show' do
-    let!(:project) { Project.create(title: 'Test title', description: 'Test description') }
+    let!(:project) { Project.create(title: 'Test title', abstract: "Test abstract", description: 'Test description') }
     it 'returns a success response' do
       get :show, params: { id: project }
       expect(response).to be_success
