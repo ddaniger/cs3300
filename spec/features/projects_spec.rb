@@ -15,18 +15,26 @@ RSpec.feature "Projects", type: :feature do
 
     scenario "should be successful" do
       fill_in "Description", with: "Test description"
+      fill_in "Abstract", with: "Test Abstract"
       click_button "Create Project"
       expect(page).to have_content("Project was successfully created")
     end
 
-    scenario "should fail" do
+    scenario "should fail for description" do
+      fill_in "Abstract", with: "Test Abstract"
       click_button "Create Project"
       expect(page).to have_content("Description can't be blank")
+    end
+
+    scenario "should fail for abstract" do
+      fill_in "Description", with: "Test description"
+      click_button "Create Project"
+      expect(page).to have_content("Abstract can't be blank")
     end
   end
 
   context "Update project" do
-    let(:project) { Project.create(title: "Test title", description: "Test content") }
+    let(:project) { Project.create(title: "Test title",abstract: "Test Abstract", description: "Test content") }
     before(:each) do
       user = FactoryBot.create(:user)
       login_as(user, scope: :user)
@@ -51,7 +59,7 @@ RSpec.feature "Projects", type: :feature do
   end
 
   context "Remove existing project" do
-    let!(:project) { Project.create(title: "Test title", description: "Test content") }
+    let!(:project) { Project.create(title: "Test title",abstract: "Test abstract", description: "Test content") }
     scenario "remove project" do
       user = FactoryBot.create(:user)
       login_as(user, scope: :user)

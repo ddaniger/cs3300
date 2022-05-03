@@ -1,14 +1,27 @@
-<p id="notice"><%= notice %></p>
+<div style="padding: 10rem; text-align: center; background-color: darkred; height: 100%">
+  <div style="justify-content: space-evenly;">
 
-<p>
-  <strong>Title:</strong>
-  <%= @project.title %>
-</p>
+    <p class="projecttitle" >
+      <strong>Title:</strong>
+      <%= @project.title %>
+    </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+    
+    <p class="projectabstract" >
+    <strong>Abstract:</strong>
+    <%= @project.abstract %>
+    </p>
+    
+    <p class="projectdescription">
+    <strong>Description:</strong>
+    <%= @project.description %>
+    </p>
 
-<%= link_to 'Edit', edit_project_path(@project) %> |
-<%= link_to 'Back', projects_path %>
+    <p id="notice"><%= notice %></p>
+    
+    <div class="verticalflip">
+    <%= link_to 'Edit', edit_project_path(@project) %> |
+    <%= link_to 'Back', projects_path %>
+    </div>
+  </div>
+</div>
